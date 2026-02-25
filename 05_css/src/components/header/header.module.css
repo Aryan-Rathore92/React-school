@@ -1,0 +1,23 @@
+.header{
+  background-color: lightseagreen;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn{
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+  background-color: black;
+  color: white;
+  box-shadow: 1px 1px 30px black;
+}
+
+.btn:hover{
+   color: black;
+  background-color: white; 
+  transition: .3s ease-in-out; 
+  box-shadow: 1px 1px 30px white;
+}
