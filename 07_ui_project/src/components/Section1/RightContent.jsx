@@ -3,6 +3,7 @@ import RightCard from './RightCard'
 
 
 const RightContent = (props) => {
+  
 
 
 

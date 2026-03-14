@@ -1,7 +1,7 @@
 import React from 'react'
 
 const RightCardContent = (props) => {
-console.log(props.color);
+
 
 
   
