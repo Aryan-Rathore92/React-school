@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { X } from 'lucide-react';
 
 const App = () => {
 
@@ -12,11 +11,18 @@ const App = () => {
     const copyTask = [...task];
     copyTask.push({title, details});
     setTask(copyTask);
-    console.log(task);
-    
+
     setTitle('')
     setdetails('')
   }
+
+  const deleteNote = (idx)=>{
+    const copytask = [...task];
+     copytask.splice(idx,1);
+     setTask(copytask)
+    
+  }
+
   return (
     <div className=' bg-black text-white lg:flex'>
       {/* // form */}
@@ -57,15 +63,21 @@ const App = () => {
      </form>
 
       {/* card div */}
-     <div className='lg:w-1/2 p-10 lg:border-l-2 '>
+     <div className='lg:w-1/2 p-10 lg:border-l-2'>
        <h1 className='text-4xl font-bold'>Recent Notes</h1>
        <div className='gap-5 mt-5 flex flex-wrap items-start justify-start overflow-auto h-screen'>
          {task.map(function(elem,idx){
           
-            return <div key={idx} className=" relative h-52  px-4 py-6 w-40 bg-cover rounded-xl bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] text-black">
-              <h2 className='absolute top-5 right-5'> <X /></h2>
-              <h3 className='leading-tight text-xl font-bold'>{elem.title}</h3>
-              <p className='mt-2 leading-tight font-medium text-gray-700'>{elem.details}</p>
+          
+            return <div key={idx} className="flex justify-between flex-col items-start relative h-52  px-4 pt-9 pb-4 w-40 bg-cover rounded-xl bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png')] text-black">
+              <div>
+              <h3 className='leading-tight text-lg font-bold'>{elem.title}</h3>
+              <p className='mt-2 leading-tight text-xs font-semibold text-gray-600'>{elem.details}</p>
+              </div>
+              <button onClick={()=>{
+                 deleteNote(idx);
+
+              }} className='active:scale-95 cursor-pointer w-full bg-red-500 text-white rounded py-1 text-xs font-bold '>Delete</button>
             </div>
 
          })}
