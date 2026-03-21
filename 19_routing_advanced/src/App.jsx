@@ -4,19 +4,33 @@ import Footer from './components/Footer'
 import {Route, Routes} from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import Contact from './pages/Product'
 import Notfound from './pages/Notfound'
+import Product from './pages/Product'
+import Men from './pages/Men'
+import Women from './pages/Women'
+import Kids from './pages/Kids'
+import Courses from './pages/Courses'
+import CourseDetails from './pages/CourseDetails'
+import NavigatebyReactDOM from './components/NavigatebyReactDOM'
 
 const App = () => {
   return (
     <div className='h-screen bg-black text-white'>
       <Navbar/>
+      <NavigatebyReactDOM/>
+
       <Footer/>
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/product' element={<Contact/>} />
-        <Route path='*' element={<Notfound/>} />
+        <Route path='/' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/product' element={<Product/>}>
+           <Route path='men' element={<Men/>}/>
+           <Route path='women' element={<Women/>}/>
+           <Route path='kids' element={<Kids/>}/>
+        </Route>
+        <Route path='/courses' element={<Courses/>}/>
+        <Route path='/courses/:courseId' element={<CourseDetails/>}/>
+        <Route path='*' element={<Notfound/>}/>
       </Routes>
     </div>
   )

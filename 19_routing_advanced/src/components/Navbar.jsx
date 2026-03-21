@@ -7,7 +7,8 @@ const Navbar = () => {
       <div className='flex text-white  gap-10 pr-7 text-lg'>
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
-        <Link to='/contact'>Contact</Link>
+        <Link to='/courses'>Courses</Link>
+        <Link to='/product'>Product</Link>
       </div>
     </div>
   )
